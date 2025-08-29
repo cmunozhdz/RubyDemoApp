@@ -12,8 +12,23 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+rails db:create 
+rails db:migrate
+
 
 * Database initialization
+
+Instala el gem del adaptador SQL Server:
+
+
+gem install tiny_tdsgem install activerecord-sqlserver-adapter
+Y agrega en tu Gemfile:
+
+# Use Microsoft SQL Server as the database for Active Record
+gem 'tiny_tds'
+gem 'activerecord-sqlserver-adapter'
+
+Apunta a bases de datos de sqlserver y mysql
 
 * How to run the test suite
 
