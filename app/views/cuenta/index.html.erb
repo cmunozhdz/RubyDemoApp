@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Cuenta" %>
+
+<h1>Cuenta</h1>
+
+<div id="cuenta">
+  <% @cuenta.each do |cuentum| %>
+    <%= render cuentum %>
+    <p>
+      <%= link_to "Show this cuentum", cuentum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New cuentum", new_cuentum_path %>

@@ -1,0 +1,32 @@
+<%= form_with(model: cuentum) do |form| %>
+  <% if cuentum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cuentum.errors.count, "error") %> prohibited this cuentum from being saved:</h2>
+
+      <ul>
+        <% cuentum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nocuenta, style: "display: block" %>
+    <%= form.text_field :nocuenta %>
+  </div>
+
+  <div>
+    <%= form.label :saldo, style: "display: block" %>
+    <%= form.text_field :saldo %>
+  </div>
+
+  <div>
+    <%= form.label :cliente_id, style: "display: block" %>
+    <%= form.number_field :cliente_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

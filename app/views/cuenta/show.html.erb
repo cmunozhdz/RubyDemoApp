@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cuentum %>
+
+<div>
+  <%= link_to "Edit this cuentum", edit_cuentum_path(@cuentum) %> |
+  <%= link_to "Back to cuenta", cuenta_path %>
+
+  <%= button_to "Destroy this cuentum", @cuentum, method: :delete %>
+</div>
