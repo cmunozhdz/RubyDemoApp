@@ -18,13 +18,13 @@ rails db:migrate
 
 * Database initialization
 
+# Use Microsoft SQL Server as the database for Active Record
 Instala el gem del adaptador SQL Server:
 
 
 gem install tiny_tdsgem install activerecord-sqlserver-adapter
 Y agrega en tu Gemfile:
 
-# Use Microsoft SQL Server as the database for Active Record
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 
