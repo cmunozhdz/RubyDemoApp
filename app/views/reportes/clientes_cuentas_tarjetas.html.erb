@@ -1,0 +1,46 @@
+<!-- filepath: /home/clemente/IntelijProjects/rails/are_app/app/views/reportes/clientes_cuentas_tarjetas.html.erb -->
+<h1>Reporte de Clientes, Cuentas y Tarjetas</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Cuentas</th>
+      <th>Tarjetas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td>
+          <%= cliente.nombre %> <%= cliente.paterno %> (<%= cliente.sexo %>)
+        </td>
+        <td>
+        
+          <% if cliente.cuentum.count() > 0 %>
+            <% cliente.cuentum.each do |cuenta| %>
+              <div>
+                <strong>NoCuenta:</strong> <%= cuenta.nocuenta %> <br>
+                <strong>Saldo:</strong> <%= cuenta.saldo %>
+              </div>
+            <% end %>
+          <% else %>
+            Sin cuentas
+          <% end %>
+        </td>
+        <td>
+          <% tarjetas = cliente.cuentum.flat_map(&:tarjetas) %>
+          <% if tarjetas.any? %>
+            <% tarjetas.each do |tarjeta| %>
+              <div>
+                <strong>NoTarjeta:</strong> <%= tarjeta.no_tarjeta %> <br>
+                <strong>Fecha Emisión:</strong> <%= tarjeta.fecha_emision %>
+              </div>
+            <% end %>
+          <% else %>
+            Sin tarjetas
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
