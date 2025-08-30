@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tarjeta
   resources :cuenta
   resources :clientes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  get 'reporte_clientes', to: 'reportes#clientes_cuentas_tarjetas'
 end

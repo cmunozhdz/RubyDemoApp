@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_29_170309) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_29_213046) do
   create_table "clientes", force: :cascade do |t|
     t.string "nombre", limit: 80
     t.string "paterno", limit: 80
@@ -28,5 +28,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_29_170309) do
     t.index ["cliente_id"], name: "index_cuenta_on_cliente_id"
   end
 
+  create_table "tarjeta", force: :cascade do |t|
+    t.string "no_tarjeta", limit: 26
+    t.date "fecha_emision"
+    t.integer "ano_vigente"
+    t.integer "mes_vigente"
+    t.bigint "cuentum_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cuentum_id"], name: "index_tarjeta_on_cuentum_id"
+  end
+
   add_foreign_key "cuenta", "clientes"
+  add_foreign_key "tarjeta", "cuenta"
 end
